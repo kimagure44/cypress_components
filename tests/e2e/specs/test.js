@@ -1,8 +1,8 @@
-// https://docs.cypress.io/api/introduction/api.html
-
-describe('My First Test', () => {
-  it('Visits the app root url', () => {
+describe('Comprobamos que los botones de acciones funcionan', () => {
+  it('Abrimos la aplicación para hacer el test', () => {
     cy.visit('/');
-    cy.contains('h1', 'Welcome to Your Vue.js App');
+  });
+  it('Accedemos al elemento mediante el ID', () => {
+    cy.get('#btnID');
   });
 });

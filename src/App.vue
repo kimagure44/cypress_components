@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated class="glossy">
+      <q-toolbar>
+        <q-toolbar-title>
+          Realizando test E2E en los elementos nativos (HMTL) y componentes de Quasar
+        </q-toolbar-title>
+        <div>Quasar v{{ $q.version }}</div>
+      </q-toolbar>
+    </q-header>
+    <q-page-container>
+      <components-nativos />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import ComponentsNativos from './components/ComponentsNativos.vue';
 
 export default {
-  name: 'App',
+  name: 'LayoutDefault',
+
   components: {
-    HelloWorld,
+    ComponentsNativos,
+  },
+
+  data() {
+    return {
+      leftDrawerOpen: false,
+    };
   },
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style>
 </style>
