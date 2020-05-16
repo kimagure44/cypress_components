@@ -51,3 +51,88 @@ describe('Comprobamos que los botones de acciones funcionan', () => {
     cy.get('table tbody tr').should('have.length', 5);
   });
 });
+
+describe('Comprobamos que los elementos de html funcionan', () => {
+  it('Comprobamos el elemento input[type=text] -> Nombre', () => {
+    cy.get('#nombre')
+      .clear()
+      .type('Nombre');
+    cy.get('form > :nth-child(1) > :nth-child(3)').should('contain', 'Nombre');
+  });
+  it('Comprobamos el elemento input[type=text] -> Apellido', () => {
+    cy.get('#apellido').type('Apellido');
+    cy.get('form > :nth-child(2) > :nth-child(3)').should('contain', 'Apellido');
+  });
+  it('Comprobamos el elemento input[type=number] -> Edad', () => {
+    cy.get('input[type=number]').type('30');
+    cy.get('form > :nth-child(3) > :nth-child(3)').should('contain', '30');
+  });
+  it('Comprobamos el elemento input[type=password] -> Contraseña', () => {
+    cy.get('input[type=password]').type('password');
+    cy.get('form > :nth-child(4) > :nth-child(3)').should('contain', 'password');
+  });
+  describe('Comprobamos el elemento input[type=radio] -> Selecciona un turno', () => {
+    it('Comprobamos la opcion del turno A', () => {
+      cy.get('#turnoA').click();
+      cy.get('form > :nth-child(5) > :nth-child(3)').should('contain', 'turnoA');
+    });
+    it('Comprobamos la opcion del turno B', () => {
+      cy.get('#turnoB').click();
+      cy.get('form > :nth-child(5) > :nth-child(3)').should('contain', 'turnoB');
+    });
+    it('Comprobamos la opcion del turno C', () => {
+      cy.get('#turnoC').click();
+      cy.get('form > :nth-child(5) > :nth-child(3)').should('contain', 'turnoC');
+    });
+  });
+  describe('Comprobamos el elemento input[type=checkbox] -> Selecciona uno o varios dispositivos', () => {
+    it('Seleccionamos el ordenador', () => {
+      cy.get('#ordenador').click();
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Ordenador');
+    });
+    it('Seleccionamos el tablet', () => {
+      cy.get('#tablet').click();
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Ordenador');
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Tablet');
+    });
+    it('Seleccionamos el movil', () => {
+      cy.get('#movil').click();
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Ordenador');
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Tablet');
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Movil');
+    });
+    it('Seleccionamos el portatil', () => {
+      cy.get('#portatil').click();
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Ordenador');
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Tablet');
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Movil');
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', 'Portatil');
+    });
+    it('No seleccionamos ninguno', () => {
+      cy.get('input[type=reset]').click();
+      cy.get('form > :nth-child(6) > :nth-child(3)').should('contain', '');
+    });
+  });
+  it('Comprobamos el elemento input[type=color] -> Color', () => {
+    cy.get('input[type=color]')
+      .invoke('val', '#ffff00')
+      .trigger('input');
+    cy.get('form > :nth-child(7) > :nth-child(3)').should('contain', '#ffff00');
+  });
+  it('Comprobamos el elemento input[type=date] -> Cumpleaños', () => {
+    cy.get('input[type=date]')
+      .invoke('val', '2020-01-01')
+      .trigger('input');
+    cy.get(':nth-child(8) > :nth-child(3)').should('contain', '01/01/2020');
+  });
+  it('Comprobamos el elemento input[type=datetime-local] -> Hora de entrada', () => {
+    cy.get('input[type=datetime-local]')
+      .invoke('val', '2020-05-08T11:11')
+      .trigger('input');
+    cy.get(':nth-child(9) > :nth-child(3)').should('contain', '2020-05-08T11:11');
+  });
+  it('Comprobamos el elemento input[type=email] -> Email', () => {
+    cy.get('input[type=email]').type('email@dominio.com');
+    cy.get(':nth-child(10) > :nth-child(3)').should('contain', 'email@dominio.com');
+  });
+});

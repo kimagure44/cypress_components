@@ -45,107 +45,121 @@
         </div>
         <div class="container">
           <button id="btnResetID" @click="btnResetID">Reset ID</button>
-          <button id="btnResetATTR" @click="btnResetATTR">Reset ATTR</button>
           <button id="btnResetCLASS" @click="btnResetCLASS">Reset CLASS</button>
           <button id="btnResetTAGNAME" @click="btnResetTAGNAME">Reset TAGNAME</button>
         </div>
+        <button id="btnResetATTR" @click="btnResetATTR">Reset ATTR</button>
         <div class="container">
-          <form>
+          <form ref="form">
             <div class="container">
-              <div class="input-float">
-                <input type="text" id="nombre" placeholder=" " />
-                <label for="nombre">Nombre</label>
+              <div>Nombre</div>
+              <div><input type="text" id="nombre" v-model="nombre" /></div>
+              <div><b>v-model:</b> {{ nombre }}</div>
+            </div>
+            <div class="container">
+              <div>Apellido</div>
+              <div><input type="text" id="apellido" v-model="apellido" /></div>
+              <div><b>v-model:</b> {{ apellido }}</div>
+            </div>
+            <div class="container">
+              <div for="edad">Edad</div>
+              <div><input type="number" id="edad" v-model="edad" /></div>
+              <div><b>v-model:</b> {{ edad }}</div>
+            </div>
+            <div class="container">
+              <div for="password">Contraseña</div>
+              <div><input type="password" id="password" v-model="password" /></div>
+              <div><b>v-model:</b> {{ password }}</div>
+            </div>
+            <div class="container">
+              <div>Selecciona un turno</div>
+              <div>
+                <input type="radio" id="turnoA" value="turnoA" v-model="radio" />
+                <label for="turnoA">turnoA</label><br />
+                <input type="radio" id="turnoB" value="turnoB" v-model="radio" />
+                <label for="turnoB">turnoB</label><br />
+                <input type="radio" id="turnoC" value="turnoC" v-model="radio" />
+                <label for="turnoC">turnoC</label>
               </div>
+              <div><b>v-model:</b>{{ radio }}</div>
             </div>
             <div class="container">
-              <div class="input-float">
-                <input type="text" id="apellido" placeholder=" " />
-                <label for="apellido">Apellido</label>
+              <div>Selecciona uno o varios dispositivos</div>
+              <div>
+                <input type="checkbox" id="ordenador" value="Ordenador" v-model="check" />
+                <label for="ordenador">Tengo ordenador</label><br />
+                <input type="checkbox" id="tablet" value="Tablet" v-model="check" />
+                <label for="tablet">Tengo tablet</label><br />
+                <input type="checkbox" id="movil" value="Movil" v-model="check" />
+                <label for="Movil">Tengo Movil</label><br />
+                <input type="checkbox" id="portatil" value="Portatil" v-model="check" />
+                <label for="Portatil">Tengo Portatil</label><br />
               </div>
+              <div><b>v-model:</b>{{ check }}</div>
             </div>
             <div class="container">
-              <div class="input-float">
-                <input type="number" id="edad" placeholder=" " />
-                <label for="edad">Edad</label>
-              </div>
+              <div>Seleciona un color</div>
+              <div><input type="color" v-model="color" /></div>
+              <div><b>v-model:</b>{{ color }}</div>
             </div>
             <div class="container">
-              <div class="input-float">
-                <input type="password" id="password" placeholder=" " />
-                <label for="password">Contraseña</label>
-              </div>
+              <div>Cumpleaños</div>
+              <div><input type="date" v-model="fecha" /></div>
+              <div><b>v-model:</b>{{ convertDate }}</div>
             </div>
             <div class="container">
-              <input type="radio" id="hombre" value="hombre">
-              <label for="hombre">Hombre</label><br>
-              <input type="radio" id="mujer" value="Mujer">
-              <label for="female">Mujer</label><br>
-              <input type="radio" id="otro" value="Otro">
-              <label for="other">Otro</label>
+              <div>Hora de entrada</div>
+              <div><input type="datetime-local" v-model="tiempo" /></div>
+              <div><b>v-model:</b>{{ tiempo }}</div>
             </div>
             <div class="container">
-              <input type="checkbox" id="ordenador" value="Ordenador">
-              <label for="ordenador">Tengo ordenador</label><br>
-              <input type="checkbox" id="tablet" value="tablet">
-              <label for="tablet">Tengo tablet</label><br>
-              <input type="checkbox" id="Movil" value="Movil">
-              <label for="Movil">Tengo Movil</label><br>
-              <input type="checkbox" id="Portatil" value="Portatil">
-              <label for="Portatil">Tengo Portatil</label><br>
+              <div>Email</div>
+              <div><input type="email" v-model="email" /></div>
+              <div><b>v-model:</b>{{ email }}</div>
             </div>
             <div class="container">
-              <label for="color">Seleciona un color</label>
-              <input type="color">
+              <div>Fichero</div>
+              <div><input type="file" /></div>
             </div>
             <div class="container">
-              <label for="cumpleaños">Cumpleaños</label>
-              <input type="date" />
+              <div>Imagen</div>
+              <div><input type="image" /></div>
             </div>
             <div class="container">
-              <label for="cumpleaños">Hora de entrada</label>
-              <input type="datetime-local" />
+              <div>Mes</div>
+              <div><input type="month" /></div>
             </div>
             <div class="container">
-              <label for="email">Email</label>
-              <input type="email" />
+              <div>Rango</div>
+              <div><input type="range" /></div>
             </div>
             <div class="container">
-              <input type="file">
+              <div>Busqueda</div>
+              <div><input type="search" /></div>
             </div>
             <div class="container">
-              <input type="image">
+              <div>Teléfono</div>
+              <div><input type="tel" /></div>
             </div>
             <div class="container">
-              <input type="month">
+              <div for="texto">Texto</div>
+              <div><input type="text" /></div>
             </div>
             <div class="container">
-              <input type="range">
+              <div>Hora</div>
+              <div><input type="time" /></div>
             </div>
             <div class="container">
-              <input type="search">
+              <div>URL</div>
+              <div><input type="url" /></div>
             </div>
             <div class="container">
-              <input type="tel">
-            </div>
-            <div class="container">
-              <label for="texto">Texto</label>
-              <input type="text">
-            </div>
-            <div class="container">
-              <label for="hora">Hora</label>
-              <input type="time">
-            </div>
-            <div class="container">
-              <label for="url">URL</label>
-              <input type="url">
-            </div>
-            <div class="container">
-              <label for="semana">Semana</label>
-              <input type="week">
+              <div>Semana</div>
+              <div><input type="week" /></div>
             </div>
             <div class="container">
               <input type="submit" value="Enviar" />
-              <input type="reset" value="Reset" />
+              <input type="reset" value="Reset" @click="reset" />
             </div>
           </form>
         </div>
@@ -154,8 +168,7 @@
   </q-page>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 export default {
@@ -166,7 +179,38 @@ export default {
       attr: '',
       className: '',
       tagName: '',
+      nombre: '',
+      apellido: '',
+      edad: '',
+      password: '',
+      radio: '',
+      check: [],
+      color: '',
+      fecha: '',
+      tiempo: '',
+      email: '',
+      fichero: '',
+      imagen: '',
+      mes: '',
+      rango: '',
+      busqueda: '',
+      telefono: '',
+      texto: '',
+      hora: '',
+      url: '',
+      semana: '',
     };
+  },
+  computed: {
+    convertDate() {
+      const fecha = new Date(this.fecha);
+      const optionsFormat = new Intl.DateTimeFormat('es-ES', {
+        day: '2-digit',
+        year: 'numeric',
+        month: '2-digit',
+      });
+      return this.fecha ? optionsFormat.format(fecha) : '';
+    },
   },
   methods: {
     btnID() {
@@ -193,6 +237,11 @@ export default {
     btnResetTAGNAME() {
       this.tagName = '';
     },
+    reset(evt) {
+      evt.preventDefault();
+      this.check = [];
+      this.$refs.form.reset();
+    },
   },
 };
 </script>
@@ -201,7 +250,7 @@ export default {
   .col {
     .container {
       min-height: 100px;
-      box-shadow: 0 0 8px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
       margin: 10px;
       padding: 10px;
     }
@@ -221,45 +270,5 @@ table {
       padding: 5px;
     }
   }
-}
-.input-float {
-  input {
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid #cccccc;
-    width: 100%;
-    position: relative;
-    left: 0;
-    top: 15px;
-    background: transparent;
-    padding: 20px 10px 0 10px;
-    transition: 180ms ease-in-out;
-    &:not(:placeholder-shown) + label {
-      transition: 180ms ease-in-out;
-      top: -30px;
-      font-size: 10px;
-    }
-    &:focus + label {
-      transition: 180ms ease-in-out;
-      top: -30px;
-      font-size: 10px;
-    }
-    &:focus {
-      background: #ececec;
-      transition: 180ms ease-in-out;
-    }
-  }
-  label {
-    position: relative;
-    top: -7px;
-    left: 10px;
-    font-size: 14px;
-    color: #bbbbbb;
-    transition: 180ms ease-in-out;
-  }
-}
-:focus {
-  outline: 0px;
 }
 </style>
