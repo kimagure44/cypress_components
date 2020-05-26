@@ -122,40 +122,24 @@
               <div><input type="file" /></div>
             </div>
             <div class="container">
-              <div>Imagen</div>
-              <div><input type="image" /></div>
-            </div>
-            <div class="container">
               <div>Mes</div>
-              <div><input type="month" /></div>
+              <div><input type="month" v-model="mes" /></div>
+              <div><b>v-model:</b>{{ mes }}</div>
             </div>
             <div class="container">
               <div>Rango</div>
-              <div><input type="range" /></div>
-            </div>
-            <div class="container">
-              <div>Busqueda</div>
-              <div><input type="search" /></div>
-            </div>
-            <div class="container">
-              <div>Teléfono</div>
-              <div><input type="tel" /></div>
-            </div>
-            <div class="container">
-              <div for="texto">Texto</div>
-              <div><input type="text" /></div>
+              <div><input type="range" min="1" max="100" v-model="rango" /></div>
+              <div><b>v-model:</b>{{ rango }}</div>
             </div>
             <div class="container">
               <div>Hora</div>
-              <div><input type="time" /></div>
-            </div>
-            <div class="container">
-              <div>URL</div>
-              <div><input type="url" /></div>
+              <div><input type="time" v-model="hora" /></div>
+              <div><b>v-model:</b>{{ hora }}</div>
             </div>
             <div class="container">
               <div>Semana</div>
-              <div><input type="week" /></div>
+              <div><input type="week" v-model="semana" /></div>
+              <div><b>v-model:</b>{{ semana }}</div>
             </div>
             <div class="container">
               <input type="submit" value="Enviar" />
@@ -189,15 +173,9 @@ export default {
       fecha: '',
       tiempo: '',
       email: '',
-      fichero: '',
-      imagen: '',
       mes: '',
-      rango: '',
-      busqueda: '',
-      telefono: '',
-      texto: '',
+      rango: 50,
       hora: '',
-      url: '',
       semana: '',
     };
   },

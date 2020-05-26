@@ -1,0 +1,8 @@
+No tests found, exiting with code 1
+Run with `--passWithNoTests` to exit with code 0
+In D:\www\CYPRESS_COMPONENTS\cye2e
+  22 files checked.
+  testMatch: **/tests/unit/**/*.spec.[jt]s?(x), **/__tests__/*.[jt]s?(x) - 1 match
+  testPathIgnorePatterns: \\node_modules\\ - 22 matches
+  testRegex:  - 0 matches
+Pattern: test.js|el|elemento|input\[type=file\]|- - 0 matches

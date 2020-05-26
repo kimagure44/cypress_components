@@ -3,9 +3,8 @@
     <q-header elevated class="glossy">
       <q-toolbar>
         <q-toolbar-title>
-          Realizando test E2E en los elementos nativos (HMTL) y componentes de Quasar
+          Realizando test E2E en los elementos nativos de HMTL
         </q-toolbar-title>
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
     <q-page-container>
